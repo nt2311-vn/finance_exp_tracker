@@ -29,7 +29,7 @@ const Hero = () => {
         alt="dashboard"
         width={1080}
         height={720}
-        className="mt-5 rounded-xl border-2"
+        className="-mt-5 rounded-xl border-2"
       />
     </section>
   );
