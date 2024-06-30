@@ -2,7 +2,7 @@ import { SignIn } from "@clerk/nextjs";
 
 export default function Page() {
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
         <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
           <img
@@ -42,7 +42,7 @@ export default function Page() {
           <div className="max-w-xl lg:max-w-3xl">
             <div className="relative -mt-16 block lg:hidden">
               <a
-                className="inline-flex size-16 items-center justify-center rounded-full bg-white text-blue-600 sm:size-20 dark:bg-gray-900"
+                className="inline-flex size-16 items-center justify-center rounded-full bg-white text-blue-600 sm:size-20"
                 href="#"
               >
                 <span className="sr-only">Home</span>
@@ -59,11 +59,11 @@ export default function Page() {
                 </svg>
               </a>
 
-              <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl dark:text-white">
+              <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
                 Welcome to Squid 🦑
               </h1>
 
-              <p className="mt-4 leading-relaxed text-gray-500 dark:text-gray-400">
+              <p className="mt-4 leading-relaxed text-gray-500">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Eligendi nam dolorum aliquam, quibusdam aperiam voluptatum.
               </p>
