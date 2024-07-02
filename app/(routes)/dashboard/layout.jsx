@@ -1,3 +1,4 @@
+import DashboardHeader from "./_components/DashboardHeader";
 import SideNav from "./_components/SideNav";
 
 const DashboardLayout = ({ children }) => {
@@ -6,7 +7,10 @@ const DashboardLayout = ({ children }) => {
       <div className="fixed md:w-64 hidden md:block">
         <SideNav />
       </div>
-      <div className="md:ml-64 bg-green-200">{children}</div>
+      <div className="md:ml-64">
+        <DashboardHeader />
+        {children}
+      </div>
     </div>
   );
 };
