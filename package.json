@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^5.1.6",
+    "@libsql/client": "^0.7.0",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "drizzle-orm": "^0.31.2",
     "lucide-react": "^0.399.0",
     "next": "14.2.4",
     "punycode": "^2.3.1",
@@ -22,9 +24,10 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "drizzle-kit": "^0.22.8",
     "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "eslint-config-next": "14.2.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
   }
 }
