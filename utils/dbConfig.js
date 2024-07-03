@@ -9,4 +9,4 @@ const client = createClient({
 	authToken: process.env.NEXT_PUBLIC_TURSO_AUTH_TOKEN,
 });
 
-const db = drizzle(client, { schema });
+export const db = drizzle(client, { schema });
