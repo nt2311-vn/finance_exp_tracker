@@ -3,14 +3,14 @@
 import { db } from "@/utils/dbConfig";
 import { Budgets, Expenses } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
-import { getAuth } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 import { eq, getTableColumns, sql } from "drizzle-orm";
 import { toast } from "sonner";
-const { userId } = getAuth();
+const { userId } = auth();
 
 const getBudgetList = async () => {
 	if (!userId) {
-		toast.error("User not found");
+		throw new Error("User not found");
 	}
 	const budgets = await db
 		.select({
@@ -24,7 +24,7 @@ const getBudgetList = async () => {
 		.groupBy(Budgets.id);
 
 	if (!budgets) {
-		toast.error("Database error");
+		throw new Error("Database error");
 	}
 
 	return budgets;
