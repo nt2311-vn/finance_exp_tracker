@@ -14,33 +14,17 @@ import {
 import { Input } from "@/components/ui/input";
 import { db } from "@/utils/dbConfig";
 import { Budgets } from "@/utils/schema";
-import { useUser } from "@clerk/nextjs";
 import EmojiPicker from "emoji-picker-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import createBudget from "@/app/(actions)/createBudget";
 
 const CreateBudget = () => {
   const [emojiIcon, setEmojiIcon] = useState("😀");
   const [openEmojiPicker, setOpenEmojiPicker] = useState(false);
   const [name, setName] = useState();
   const [amount, setAmount] = useState();
-  const { user } = useUser();
 
-  const onCreateBudget = async () => {
-    const budget = await db
-      .insert(Budgets)
-      .values({
-        name: name,
-        amount: amount,
-        createdBy: user?.primaryEmailAddress?.emailAddress,
-        icon: emojiIcon,
-      })
-      .returning({ insertId: Budgets.id });
-
-    if (budget) {
-      toast.success("Transaction added to budget");
-    }
-  };
   return (
     <div>
       <Dialog>
@@ -95,7 +79,14 @@ const CreateBudget = () => {
               <Button
                 className="mt-5 w-full"
                 disabled={!(name && amount)}
-                onClick={() => onCreateBudget()}
+                onClick={() => {
+                  try {
+                    createBudget(name, amount, emojiIcon);
+                    toast.success("Budget was added");
+                  } catch (err) {
+                    toast.error(err);
+                  }
+                }}
               >
                 Create Budget
               </Button>
