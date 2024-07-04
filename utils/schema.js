@@ -15,5 +15,5 @@ export const Expenses = sqliteTable("expenses", {
 	budgetId: integer("budgetId")
 		.references(() => Budgets.id)
 		.notNull(),
-	createdBy: text("createdBy").notNull(),
+	createdAt: text("createdAt").notNull(),
 });
