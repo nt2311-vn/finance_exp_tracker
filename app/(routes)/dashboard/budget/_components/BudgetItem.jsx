@@ -14,8 +14,13 @@ const BudgetItem = ({ budget }) => {
         <h2 className="font-bold text-primary text-lg">${budget?.amount}</h2>
       </div>
       <div className="mt-5">
-        <div>
-          <h2 className="text-md text-slate-800">${budget?.totalSpend ?? 0}</h2>
+        <div className="flex items-center justify-between">
+          <h2 className="text-md text-slate-400 font-medium">
+            ${budget?.totalSpend ?? 0} Spent
+          </h2>
+          <h2 className="text-md text-slate-400 font-medium">
+            ${budget?.amount - budget?.totalSpend} Remaining
+          </h2>
         </div>
         <div className="w-full bg-slate-400 h-2 rounded-full">
           <div className="w-[20%] bg-primary h-2 rounded-full"></div>
