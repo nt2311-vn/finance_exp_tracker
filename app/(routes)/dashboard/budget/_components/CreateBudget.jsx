@@ -47,7 +47,7 @@ const CreateBudget = () => {
                 >
                   {emojiIcon}
                 </Button>
-                <div>
+                <div className="absolute z-20">
                   <EmojiPicker
                     open={openEmojiPicker}
                     onEmojiClick={(e) => {
@@ -83,7 +83,6 @@ const CreateBudget = () => {
                   try {
                     createBudget(name, amount, emojiIcon);
                     toast.success("Budget was added");
-                    window.location.reload();
                   } catch (err) {
                     toast.error(err);
                   }
