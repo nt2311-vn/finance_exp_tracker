@@ -1,14 +1,14 @@
 "use server";
-
 import { db } from "@/utils/dbConfig";
 import { Budgets, Expenses } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { eq, getTableColumns, sql } from "drizzle-orm";
 import { toast } from "sonner";
-const { userId } = auth();
 
 const getBudgetList = async () => {
+	const { userId } = auth();
+
 	if (!userId) {
 		throw new Error("User not found");
 	}
